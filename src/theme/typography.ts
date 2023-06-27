@@ -42,21 +42,24 @@ function responsiveFontSizes({ sm, md, lg }: { sm: number; md: number; lg: numbe
 		},
 	}
 }
+const FONT_PRIMARY = 'EB Garamond, serif'
+const FONT_HEADER = 'EB Garamond, serif'
+const FONT_UI = 'EB Garamond, serif'
 
-const FONT_PRIMARY = 'serif'
-const FONT_HEADER = 'serif'
-const FONT_UI = 'serif'
+const fontWeightRegular= 400
+const fontWeightMedium= 600
+const fontWeightBold= 800
 
 const typography = {
 	fontFamily: FONT_PRIMARY,
 
-	fontWeightRegular: 300,
-	fontWeightMedium: 500,
-	fontWeightBold: 700,
+	fontWeightRegular: fontWeightRegular,
+	fontWeightMedium: fontWeightMedium,
+	fontWeightBold: fontWeightBold,
 
 	h1: {
 		fontFamily: FONT_HEADER,
-		fontWeight: 900,
+		fontWeight: fontWeightBold,
 		lineHeight: 80 / 64,
 		fontSize: pxToRem(40),
 		...responsiveFontSizes({ sm: 52, md: 58, lg: 64 }),
@@ -64,7 +67,7 @@ const typography = {
 	},
 	h2: {
 		fontFamily: FONT_HEADER,
-		fontWeight: 900,
+		fontWeight: fontWeightBold,
 		lineHeight: 64 / 48,
 		fontSize: pxToRem(32),
 		...responsiveFontSizes({ sm: 40, md: 44, lg: 48 }),
@@ -72,7 +75,7 @@ const typography = {
 	},
 	h3: {
 		fontFamily: FONT_HEADER,
-		fontWeight: 900,
+		fontWeight: fontWeightMedium,
 		lineHeight: 1,
 		fontSize: pxToRem(24),
 		...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
@@ -80,7 +83,7 @@ const typography = {
 	},
 	h4: {
 		fontFamily: FONT_HEADER,
-		fontWeight: 900,
+		fontWeight: fontWeightMedium,
 		lineHeight: 1,
 		fontSize: pxToRem(20),
 		...responsiveFontSizes({ sm: 20, md: 24, lg: 24 }),
@@ -88,7 +91,7 @@ const typography = {
 	},
 	h5: {
 		fontFamily: FONT_HEADER,
-		fontWeight: 900,
+		fontWeight: fontWeightMedium,
 		lineHeight: 1.5,
 		fontSize: pxToRem(18),
 		...responsiveFontSizes({ sm: 19, md: 20, lg: 20 }),
@@ -96,7 +99,7 @@ const typography = {
 	},
 	h6: {
 		fontFamily: FONT_HEADER,
-		fontWeight: 900,
+		fontWeight: fontWeightMedium,
 		lineHeight: 28 / 18,
 		fontSize: pxToRem(17),
 		...responsiveFontSizes({ sm: 18, md: 18, lg: 18 }),
@@ -104,21 +107,23 @@ const typography = {
 	},
 
 	subtitle1: {
-		fontWeight: 400,
+		fontWeight: fontWeightMedium,
 		lineHeight: 1.5,
 		fontSize: pxToRem(16),
 	},
 	subtitle2: {
-		fontWeight: 400,
+		fontWeight: fontWeightMedium,
 		lineHeight: 22 / 14,
 		fontSize: pxToRem(16),
 	},
 	body1: {
+		fontWeight: fontWeightRegular,
 		lineHeight: 1.5,
 		fontSize: pxToRem(20),
 		...responsiveFontSizes({ sm: 16, md: 20, lg: 24 }),
 	},
 	body2: {
+		fontWeight: fontWeightRegular,
 		lineHeight: 22 / 14,
 		fontSize: pxToRem(14),
 	},
@@ -128,7 +133,7 @@ const typography = {
 		fontSize: pxToRem(12),
 	},
 	overline: {
-		fontWeight: 400,
+		fontWeight: fontWeightMedium,
 		lineHeight: 1.5,
 		fontSize: pxToRem(12),
 		letterSpacing: 1.1,
@@ -136,7 +141,7 @@ const typography = {
 	},
 	button: {
 		fontFamily: FONT_UI,
-		fontWeight: 400,
+		fontWeight: fontWeightMedium,
 		lineHeight: 24 / 14,
 		fontSize: pxToRem(14),
 		textTransform: 'uppercase',

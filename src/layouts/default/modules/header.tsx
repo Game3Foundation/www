@@ -31,7 +31,7 @@ const pages = [
 ]
 const settings = ['Profile', 'Account', 'Dashboard', 'Disconnect']
 
-// const Logo = () => <img src="/v3/svg/GameDAO-mono-h-wht-scaled.svg" height='16px' />
+// const Logo = () => <img style={{ fill: 'red' }} src="/game3.svg" height='16px' />
 
 export const Header = () => {
 
@@ -69,13 +69,15 @@ export const Header = () => {
 				<Toolbar disableGutters>
 
 {/* desktop logo */}
-					{/* <MenuItem sx={{ display: { xs: 'none', md: 'flex' } }}>
+					{/*
+					<MenuItem sx={{ display: { xs: 'none', md: 'flex' } }}>
 						<Link href="/" >
 							<Typography variant="h5" noWrap component="div" sx={{ mr: 2 }}>
 								<Logo/>
 							</Typography>
 						</Link>
-					</MenuItem> */}
+					</MenuItem>
+*/}
 {/* mobile logo */}
 					{/* <MenuItem sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1, p: 1 }}>
 						<Link href="/">

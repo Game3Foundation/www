@@ -1,0 +1,17 @@
+{
+  "global": {
+    "SITE_NAME": "GAME3 Foundation",
+    "SITE_TITLE": "Supporting the creative industries in gaming, arts, music, and entertainment.",
+    "SITE_DESCRIPTION": "A non profit to create better games and entertainment.",
+    "SITE_IMAGE": "https://game3.foundation/headerimage.png",
+    "TW_SITE_NAME": "@game3foundation",
+    "TW_SITE_CREATOR": "@game3foundation",
+    "CONTACT": "hey@gamedao.co"
+  },
+  "dev": {
+  },
+  "production": {
+  },
+  "identity": {
+  }
+}

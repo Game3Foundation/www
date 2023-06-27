@@ -14,7 +14,7 @@ interface ComponentProps {
 }
 
 // TODO: Should not be here/ configs and co
-const SITE_NAME = 'GameDAO'
+const SITE_NAME = 'GAME3 Foundation'
 
 export function Layout({ showHeader, showFooter, showSidebar, children, noContainer, title }: ComponentProps) {
 	const theme = useTheme()

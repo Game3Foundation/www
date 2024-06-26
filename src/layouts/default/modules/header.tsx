@@ -24,17 +24,22 @@ import {
 import { Drawer, Fade } from '@mui/material'
 
 const pages = [
-	// ['Cases',''],
-	['Blog','//blog.gamedao.co'],
-	['Community','//discord.gg/rhwtr7p'],
+	['Research', '#research'],
+	// ['Papers', '/papers'],
+	['Publications', '#publications'],
+	// ['Grants', '/grants'],
+	// ['Blog', '/blog'],
+	// ['Contact', '/contact'],
+	['About', '#about'],
+	// ['Blog', '//blog.gamedao.co'],
+	// ['Community', '//discord.gg/rhwtr7p'],
 	// ['Contact','mailto:hey@gamedao.co'],
 ]
 const settings = ['Profile', 'Account', 'Dashboard', 'Disconnect']
 
-// const Logo = () => <img style={{ fill: 'red' }} src="/game3.svg" height='16px' />
+const Logo = () => <img style={{ fill: 'red' }} src="/game3.svg" height="16px" />
 
 export const Header = () => {
-
 	const router = useRouter()
 
 	const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null)
@@ -65,122 +70,127 @@ export const Header = () => {
 
 	return (
 		<AppBar position="static" color="transparent" elevation={0} sx={{ zIndex: 9000 }}>
-			<Container maxWidth="xl">
+			<Container maxWidth="lg">
 				<Toolbar disableGutters>
-
-{/* desktop logo */}
+					{/* desktop logo */}
 					{/*
-					<MenuItem sx={{ display: { xs: 'none', md: 'flex' } }}>
-						<Link href="/" >
-							<Typography variant="h5" noWrap component="div" sx={{ mr: 2 }}>
-								<Logo/>
-							</Typography>
-						</Link>
-					</MenuItem>
-*/}
-{/* mobile logo */}
-					{/* <MenuItem sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1, p: 1 }}>
+					 */}
+					{/* <MenuItem sx={{ display: { xs: 'none', md: 'flex' } }}>
 						<Link href="/">
-							<Typography
-								variant="h6"
-								noWrap
-								component="div"
-								sx={{  }}
-
-							>
+							<Typography variant="h5" noWrap component="div" sx={{ mr: 2 }}>
 								<Logo />
 							</Typography>
 						</Link>
 					</MenuItem> */}
-{/* mobile nav */}
-					{/* <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
-
+					{/* mobile logo */}
+					{/* <MenuItem sx={{ display: { xs: 'flex', md: 'none' }, flexGrow: 1, p: 1 }}>
+						<Link href="/">
+							<Typography variant="h6" noWrap component="div" sx={{}}>
+								<Logo />
+							</Typography>
+						</Link>
+					</MenuItem> */}
+					{/*
+					 */}
+					{/* mobile nav */}
+					<Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
 						<IconButton
 							size="large"
 							aria-label="appbar"
 							aria-controls="menu-appbar"
 							aria-haspopup="true"
-							onClick={ handleOpenNavMenu }
+							onClick={handleOpenNavMenu}
 							color="inherit"
 						>
 							<MenuIcon />
 						</IconButton>
 
-							<Drawer
-								variant="temporary"
-								transitionDuration={0}
-								elevation={0}
-								anchor="top"
-								open={ Boolean(anchorElNav) }
-								onClose={ handleCloseNavMenu }
-								sx={{ zIndex: 9001 }}
-							>
-								<Box sx={{
-									px: ['1rem','3rem'],
-									py: ['0.25rem','0.5rem'],
+						<Drawer
+							variant="temporary"
+							transitionDuration={0}
+							elevation={0}
+							anchor="top"
+							open={Boolean(anchorElNav)}
+							onClose={handleCloseNavMenu}
+							sx={{ zIndex: 9001 }}
+						>
+							<Box
+								sx={{
+									px: ['1rem', '3rem'],
+									py: ['0.25rem', '0.5rem'],
 									height: '100vh',
 									backgroundColor: 'rgba(0,0,0)',
-								}}>
-
-
-									<Box sx={{
+								}}
+							>
+								<Box
+									sx={{
 										flexGrow: 1,
-									}}>
-										<IconButton
-											size="large"
-											onClick={handleCloseNavMenu}
-											color="inherit"
-											aria-controls="close"
-										>
-											<CloseIcon />
-										</IconButton>
-									</Box>
-
-									<MenuItem key={'GameDAO'} onClick={handleCloseNavMenu}>
-										<Link href="/">
-											<Typography variant="h4" textAlign="center">GameDAO</Typography>
-										</Link>
-									</MenuItem>
-
-									{pages.map((page) => (
-										<MenuItem key={page[0]} onClick={ () => handleCloseNavMenu() }>
-											{ ( page[1].substr(0,2) === '//' )
-												? <a href={page[1]} target="_blank" rel="noreferrer">
-													<Typography variant="h4" textAlign="center">{page[0]}</Typography>
-												</a>
-												: <Link href={page[0].toLowerCase().replace(' ', '-')}>
-													<Typography variant="h4" textAlign="center">{page[0]}</Typography>
-												</Link>
-											}
-										</MenuItem>
-									))}
-
+									}}
+								>
+									<IconButton
+										size="large"
+										onClick={handleCloseNavMenu}
+										color="inherit"
+										aria-controls="close"
+									>
+										<CloseIcon />
+									</IconButton>
 								</Box>
-							</Drawer>
 
-					</Box> */}
-{/* desktop nav */}
-					{/* <Box justifyContent="left" alignItems="center" sx={{
-						flexGrow: 1,
-						display: { xs: 'none', md: 'flex' },
-					}}>
+								<MenuItem key={'GameDAO'} onClick={handleCloseNavMenu}>
+									<Link href="/">
+										<Typography variant="h4" textAlign="center">
+											GameDAO
+										</Typography>
+									</Link>
+								</MenuItem>
+
+								{pages.map((page) => (
+									<MenuItem key={page[0]} onClick={() => handleCloseNavMenu()}>
+										{page[1].substr(0, 2) === '//' ? (
+											<a href={page[1]} target="_blank" rel="noreferrer">
+												<Typography variant="h4" textAlign="center">
+													{page[0]}
+												</Typography>
+											</a>
+										) : (
+											<Link href={page[1].toLowerCase().replace(' ', '-')}>
+												<Typography variant="h4" textAlign="center">
+													{page[0]}
+												</Typography>
+											</Link>
+										)}
+									</MenuItem>
+								))}
+							</Box>
+						</Drawer>
+					</Box>
+					{/* desktop nav */}
+					<Box
+						justifyContent="left"
+						alignItems="center"
+						sx={{
+							flexGrow: 1,
+							display: { xs: 'none', md: 'flex' },
+						}}
+					>
 						{pages.map((page) => (
-							<MenuItem key={page[0]} onClick={ () => handleCloseNavMenu() }>
-								{ ( page[1].substr(0,2) === '//' )
-									? <a href={page[1]} target="_blank" rel="noreferrer">
+							<MenuItem key={page[0]} onClick={() => handleCloseNavMenu()}>
+								{page[1].substr(0, 2) === '//' ? (
+									<a href={page[1]} target="_blank" rel="noreferrer">
 										<Typography textAlign="center">{page[0]}</Typography>
 									</a>
-									: <Link href={page[0].toLowerCase().replace(' ', '-')}>
+								) : (
+									<Link href={page[1].toLowerCase().replace(' ', '-')}>
 										<Typography textAlign="center">{page[0]}</Typography>
 									</Link>
-								}
+								)}
 							</MenuItem>
 						))}
-					</Box> */}
+					</Box>
 
 					<Box sx={{ flexGrow: 0 }}>
-
-{/*						<NavLink href="https://app.gamedao.co">
+						{/*						<NavLink href="https://app.gamedao.co">
 							<Button size="small" variant="outlined" sx={{ pt: '3px', pb: '5px' }}>
 								Run Beta
 							</Button>

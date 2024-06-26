@@ -19,7 +19,12 @@ const SocialLinks = () => (
 		sx={{
 			// TODO: 2075 Create custom component for Links or create style override
 			a: { opacity: 0.8, textShadow: '15px pink' },
-			'a:hover': { color: '#fcf', opacity: 1, textShadow: '0 0 5px #f3f', borderBottom: '1px dotted #f3f' },
+			'a:hover': {
+				color: '#fcf',
+				opacity: 1,
+				textShadow: '0 0 5px #f3f',
+				borderBottom: '1px dotted #f3f',
+			},
 			'*': { transitionTimingFunction: 'ease-in-out;', transitionDuration: '150ms' },
 		}}
 	>
@@ -58,23 +63,27 @@ export function Footer() {
 
 				// TODO: 2075 Create custom component for Links or create style override
 				a: { opacity: 0.8, textShadow: '15px pink' },
-				'a:hover': { color: '#fcf', opacity: 1, textShadow: '0 0 5px #f3f', borderBottom: '1px dotted #f3f' },
+				'a:hover': {
+					color: '#fcf',
+					opacity: 1,
+					textShadow: '0 0 5px #f3f',
+					borderBottom: '1px dotted #f3f',
+				},
 				'*': { transitionTimingFunction: 'ease-in-out;', transitionDuration: '150ms' },
 			}}
 		>
 			<Container>
-
-						{/*
+				{/*
 				<Grid columns={12}>
 					<Grid container direction="row" mt={4} mb={4} spacing={8}>
 					*/}
-						{/* <Grid item xs={12}>
+				{/* <Grid item xs={12}>
 							<Link href="/">
 								<img src="/v3/svg/GameDAO-color.svg" width={'48'} height={'48'} />
 							</Link>
 						</Grid> */}
 
-						{/* <Grid item xs={12} md={6} mb={4}>
+				{/* <Grid item xs={12} md={6} mb={4}>
 							<Typography variant="h6" mb={2}>
 								GameDAO.
 								<br />
@@ -98,7 +107,7 @@ export function Footer() {
 								creation and esports.
 							</Typography>
 						</Grid> */}
-{/*
+				{/*
 						<Grid item xs={6} md={2} mb={4}>
 							<Typography variant="h6" mb={2}>
 								About<br /><br />
@@ -130,7 +139,9 @@ export function Footer() {
 
 				<Grid container direction="row">
 					<Typography variant="caption">
-						{`© 2019-${new Date().getFullYear()} `}GAME3.Foundation, Vaduz, Liechtenstein<br/>
+						{`© 2019-${new Date().getFullYear()} `}GAME3 Foundation, Vaduz,
+						Liechtenstein
+						<br />
 						Build {process.env.BUILD_TIME}
 					</Typography>
 				</Grid>

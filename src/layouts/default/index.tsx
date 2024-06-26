@@ -16,24 +16,29 @@ interface ComponentProps {
 // TODO: Should not be here/ configs and co
 const SITE_NAME = 'GAME3 Foundation'
 
-export function Layout({ showHeader, showFooter, showSidebar, children, noContainer, title }: ComponentProps) {
+export function Layout({
+	showHeader,
+	showFooter,
+	showSidebar,
+	children,
+	noContainer,
+	title,
+}: ComponentProps) {
 	const theme = useTheme()
-	const t = title
-		? `${ title } · ${ SITE_NAME }`
-		: `${ SITE_NAME }`
+	const t = title ? `${title} · ${SITE_NAME}` : `${SITE_NAME}`
 
 	return (
-		<Box>
-
+		<Container>
 			<Head>
-				<title>{ t }</title>
+				<title>{t}</title>
 			</Head>
 
 			<Box
 				sx={{
 					width: '100%',
 					// background: theme.palette.background.ocean,
-					p: 0, m: 0
+					p: 0,
+					m: 0,
 				}}
 			>
 				<Box sx={{ minHeight: '100vh', p: 0, m: 0 }}>
@@ -46,14 +51,13 @@ export function Layout({ showHeader, showFooter, showSidebar, children, noContai
 						}}
 					>
 						<>
-							{ showHeader && <Header /> }
-							{ noContainer ? { children } : <Content>{children}</Content> }
+							{showHeader && <Header />}
+							{noContainer ? { children } : <Content>{children}</Content>}
 						</>
 					</Box>
-					{ showFooter && <Footer /> }
+					{showFooter && <Footer />}
 				</Box>
 			</Box>
-
-		</Box>
+		</Container>
 	)
 }

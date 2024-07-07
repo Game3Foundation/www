@@ -4,7 +4,7 @@ import { Layout } from 'src/layouts/default'
 import { styled } from '@mui/system'
 import { Box, Grid, Card, Paper, Typography, Button, Stack } from '@mui/material'
 
-// import { Landingpage } from '../containers/Landingpage'
+import { Newsletter } from '../components/Newsletter'
 
 export function Page() {
 	return (
@@ -38,6 +38,7 @@ export function Page() {
 				<Typography variant="body1" id="research"></Typography>
 				<Typography variant="body1" id="publications"></Typography>
 				<Typography variant="body1" id="about"></Typography>
+				<Newsletter />
 			</Box>
 		</Layout>
 	)

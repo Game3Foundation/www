@@ -3,6 +3,8 @@ import MailchimpSubscribe from 'react-mailchimp-subscribe'
 import { Container, Box, Input, InputAdornment, Typography, Button, Stack } from '@mui/material'
 import Email from '@mui/icons-material/EmailOutlined'
 import Person from '@mui/icons-material/PersonOutlined'
+import { useMediaQuery } from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 
 const MAILCHIMP = process.env.MAILCHIMP
 
@@ -13,8 +15,12 @@ type FormProps = {
 }
 
 const CustomForm: FC<FormProps> = ({ status, message, onValidated }) => {
+	const theme = useTheme()
+	const isMd = useMediaQuery(theme.breakpoints.up('md'), { defaultMatches: true })
+	const isSm = useMediaQuery(theme.breakpoints.up('sm'), { defaultMatches: true })
+	const isXs = useMediaQuery(theme.breakpoints.up('xs'), { defaultMatches: true })
 
-	const [ inputs, setInputState ] = useState({ name: '', email: '' })
+	const [inputs, setInputState] = useState({ name: '', email: '' })
 
 	const handleOnChange = (e) => {
 		e.persist()
@@ -28,31 +34,34 @@ const CustomForm: FC<FormProps> = ({ status, message, onValidated }) => {
 		inputs.email.indexOf('@') > -1 &&
 			onValidated({
 				EMAIL: inputs.email,
-				NAME: inputs.name
+				NAME: inputs.name,
 			})
 	}
 
 	return (
-		<Box m={0} p={4} sx={{ backgroundColor: '#95b1dc'}}>
-			<Stack direction="column" justifyContent="center" alignItems="center">
+		<Box m={0} p={4} sx={{ backgroundColor: '#111', borderTop: '1px dotted #eeeeeeaa' }}>
+			<Stack direction="column" justifyContent="center" alignItems="left">
+				<Typography pb={2} variant="h5">
+					Get the latest updates and news from GAME3 Foundation
+				</Typography>
 
-				<Typography pb={2} variant="h3">Know it first and subscribe to our newsletter</Typography>
-
-				<Stack direction="row" spacing={2}>
+				<Stack direction={isMd ? `row` : `column`} spacing={2}>
 					<Input
 						sx={{
 							'& input::-webkit-input-placeholder': { color: '#fff' },
 							'& input::placeholder': { color: '#fff' },
-							'& input::-ms-input-placeholder': { color: '#fff' }
+							'& input::-ms-input-placeholder': { color: '#fff' },
 						}}
 						id="name"
-						startAdornment={
-							<InputAdornment position="start">
-								<Person sx={{
-									color: '#fff',
-								}}/>
-							</InputAdornment>
-						}
+						// startAdornment={
+						// 	<InputAdornment position="start">
+						// 		<Person
+						// 			sx={{
+						// 				color: '#fff',
+						// 			}}
+						// 		/>
+						// 	</InputAdornment>
+						// }
 						type="name"
 						placeholder="your name"
 						onChange={handleOnChange}
@@ -61,16 +70,18 @@ const CustomForm: FC<FormProps> = ({ status, message, onValidated }) => {
 						sx={{
 							'& input::-webkit-input-placeholder': { color: '#fff' },
 							'& input::placeholder': { color: '#fff' },
-							'& input::-ms-input-placeholder': { color: '#fff' }
+							'& input::-ms-input-placeholder': { color: '#fff' },
 						}}
 						id="email"
-						startAdornment={
-							<InputAdornment position="start">
-								<Email sx={{
-									color: '#fff',
-								}}/>
-							</InputAdornment>
-						}
+						// startAdornment={
+						// 	<InputAdornment position="start">
+						// 		<Email
+						// 			sx={{
+						// 				color: '#fff',
+						// 			}}
+						// 		/>
+						// 	</InputAdornment>
+						// }
 						type="email"
 						placeholder="your email"
 						onChange={handleOnChange}
@@ -80,10 +91,13 @@ const CustomForm: FC<FormProps> = ({ status, message, onValidated }) => {
 					</Button>
 				</Stack>
 
-				{ status === 'sending' && (<Typography pt={2}>sending...</Typography> ) }
-				{ status === 'error' && (<Typography pt={2} dangerouslySetInnerHTML={{ __html: message || '' }} /> ) }
-				{ status === 'success' && (<Typography pt={2} dangerouslySetInnerHTML={{ __html: message || '' }} /> ) }
-
+				{status === 'sending' && <Typography pt={2}>sending...</Typography>}
+				{status === 'error' && (
+					<Typography pt={2} dangerouslySetInnerHTML={{ __html: message || '' }} />
+				)}
+				{status === 'success' && (
+					<Typography pt={2} dangerouslySetInnerHTML={{ __html: message || '' }} />
+				)}
 			</Stack>
 		</Box>
 	)
@@ -91,7 +105,9 @@ const CustomForm: FC<FormProps> = ({ status, message, onValidated }) => {
 
 export const Newsletter: React.FC = () => (
 	<MailchimpSubscribe
-		url={'https://zero.us5.list-manage.com/subscribe/post?u=9b3f3ef14c871758185754652&amp;id=d09264f8c7'}
+		url={
+			'https://zero.us5.list-manage.com/subscribe/post?u=9b3f3ef14c871758185754652&amp;id=d09264f8c7'
+		}
 		render={({ subscribe, status, message }) => (
 			<CustomForm
 				status={status}
